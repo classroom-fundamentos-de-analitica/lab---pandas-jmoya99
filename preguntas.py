@@ -165,8 +165,11 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    tbl = tbl0.groupby("_c1")['_c2'].apply(list).apply(lambda x: sorted(x)).apply(lambda x: ':'.join(map(str, x))).to_frame().reset_index()
-    return tbl.rename(columns={"_c1": "_c0", "_c2": "_c1"})
+    tbl = pd.DataFrame(data=[])
+    tbl['_c0'] = tbl0['_c1']
+    tbl['_c1'] = tbl0['_c2']
+    tblR = tbl.groupby("_c0")['_c1'].apply(list).apply(lambda x: sorted(x)).apply(lambda x: ':'.join(map(str, x))).to_frame()
+    return tblR
 
 
 def pregunta_11():
