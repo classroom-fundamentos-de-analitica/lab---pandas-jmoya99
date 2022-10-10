@@ -224,5 +224,3 @@ def pregunta_13():
     """
     df = pd.merge(tbl0, tbl2, on='_c0', how='inner')
     return df.groupby(['_c1'])['_c5b'].sum()
-
-print(pregunta_10())
