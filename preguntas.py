@@ -165,7 +165,7 @@ def pregunta_10():
     3   D                  1:2:3:5:5:7
     4   E  1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
-    return tbl0.groupby("_c1")['_c2'].apply(list).apply(lambda x: sorted(x)).apply(lambda x: ':'.join(map(str, x))).to_frame().reset_index()
+    return tbl0.groupby("_c1")['_c2'].apply(list).apply(lambda x: sorted(x)).apply(lambda x: ':'.join(map(str, x))).to_frame()
 
 
 def pregunta_11():
@@ -224,3 +224,5 @@ def pregunta_13():
     """
     df = pd.merge(tbl0, tbl2, on='_c0', how='inner')
     return df.groupby(['_c1'])['_c5b'].sum()
+
+print(pregunta_10())
